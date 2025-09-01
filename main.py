@@ -2,7 +2,12 @@ import telebot
 from telebot import types
 from api import get_recommendations
 
-bot = telebot.TeleBot('5256675994:AAE-I2gfhv0jNukp2Squl9rHnNylpneB86g')
+import json
+with open("api.json") as f:
+    config = json.load(f)
+api_key = config["api_key"]
+
+bot = telebot.TeleBot(api_key)
 
 # @bot.message_handler(commands=['start'])
 # def start(message):
